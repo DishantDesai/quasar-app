@@ -10,8 +10,10 @@
         <dropdown-menu/>
         <q-input label="Name" />
         <template v-for="item in 15">
-          <q-card :key="item" class="task-card" @click="dialog = true" >
-            <q-card-section >
+          <q-card :key="item" class="task-card">
+            <q-card-section
+               @click="dialog = true" 
+             >
               Number {{item}}
             </q-card-section>
             <div class="column">
