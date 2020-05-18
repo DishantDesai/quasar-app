@@ -1,0 +1,14 @@
+@import './quasar.variables.scss';
+@import '~quasar-styl';
+// @import '~quasar-addon-styl';
+.d-flex{
+    display: flex;
+}
+.flex-row{
+    flex-direction: row
+}
+.task-card{
+    background-color:#f1f2f5;
+    margin-top:5px;
+    border-radius: 10px;
+}

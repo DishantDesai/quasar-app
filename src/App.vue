@@ -1,0 +1,52 @@
+<template>
+  <q-layout view="lHh Lpr lFf">
+    <div class="d-flex flex-row" style="overflow:auto">
+      <q-card style="min-width:344px;margin-left:20px;margin-top:20px;padding:15px" class="q-ml-3 q-mt-2 shadow-3" v-for="card in 20" :key="card">
+        {{card}}
+        <dropdown-menu/>
+        <q-input label="Name" />
+        <template v-for="item in 15">
+          <q-card :key="item" class="task-card" >
+            <q-card-section >
+              Number {{item}}
+            </q-card-section>
+            <div class="column">
+              <dropdown-menu/>
+              <q-btn class="col-6" style="margin-top:5px" label="Date Picket">
+                <q-tooltip>
+                  Date Picker
+                </q-tooltip>
+                <q-menu>
+                  <q-date v-model="date" />
+                </q-menu>
+              </q-btn>
+              <dropdown-menu/>
+              <dropdown-menu/>
+            </div>
+            <q-separator />
+          </q-card>
+        </template>
+        <q-input label="Add" />
+      </q-card>
+    </div>
+  </q-layout>
+</template>
+
+<script>
+
+import DropdownMenu from './components/Menu'
+export default {
+  name: 'LayoutDefault',
+  components:{
+    DropdownMenu
+  },
+  data(){
+    return{
+      date:null
+    }
+  }
+}
+</script>
+
+<style>
+</style>
