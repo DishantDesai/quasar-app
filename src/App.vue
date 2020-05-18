@@ -1,6 +1,10 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <div class="d-flex flex-row" style="overflow:auto">
+    <q-toggle
+        v-model="isShow"
+        :label="`${isShow ? 'Hide' : 'Show'} Content`"
+    />
+    <div v-if="isShow" class="d-flex flex-row" style="overflow:auto">
       <q-card style="min-width:344px;margin-left:20px;margin-top:20px;padding:15px" class="q-ml-3 q-mt-2 shadow-3" v-for="card in 20" :key="card">
         {{card}}
         <dropdown-menu/>
@@ -40,9 +44,16 @@ export default {
   components:{
     DropdownMenu
   },
+  beforeUpdate(){
+    console.time('vuetify')
+  },
+  updated(){
+    console.timeEnd('vuetify')
+  },
   data(){
     return{
-      date:null
+      date:null,
+      isShow:true
     }
   }
 }
