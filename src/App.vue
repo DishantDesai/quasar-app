@@ -10,7 +10,7 @@
         <dropdown-menu/>
         <q-input label="Name" />
         <template v-for="item in 15">
-          <q-card :key="item" class="task-card" >
+          <q-card :key="item" class="task-card" @click="dialog = true" >
             <q-card-section >
               Number {{item}}
             </q-card-section>
@@ -32,6 +32,11 @@
         </template>
         <q-input label="Add" />
       </q-card>
+      <card-dialog
+        v-if="dialog"
+        :dialog="dialog"
+        @close="closeDialog"
+      />
     </div>
   </q-layout>
 </template>
@@ -39,21 +44,33 @@
 <script>
 
 import DropdownMenu from './components/Menu'
+import CardDialog from './components/Dialog'
 export default {
   name: 'LayoutDefault',
   components:{
-    DropdownMenu
+    DropdownMenu,
+    CardDialog
   },
   beforeUpdate(){
-    console.time('vuetify')
+    if(this.isShow){
+      console.time('vuetify')
+    }
   },
   updated(){
-    console.timeEnd('vuetify')
+    if(this.isShow){
+      console.timeEnd('vuetify')
+    }
   },
   data(){
     return{
       date:null,
-      isShow:true
+      isShow:true,
+      dialog: false
+    }
+  },
+  methods:{
+    closeDialog(){
+      this.dialog = false
     }
   }
 }

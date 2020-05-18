@@ -12,7 +12,8 @@ import {
   QBtn,
   ClosePopup,
   QInput,
-  QDate
+  QDate,
+  QDialog
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -23,7 +24,8 @@ Vue.use(Quasar, {
     QMenu,
     QBtn,
     QInput,
-    QDate
+    QDate,
+    QDialog
   },
   directives: {
     ClosePopup
