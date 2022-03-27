@@ -1,8 +1,8 @@
-import Vue from 'vue'
-import App from './App.vue'
-import './quasar'
+import Vue from "vue";
+import App from "./App.vue";
+import "./quasar";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 import {
   Quasar,
   QCard,
@@ -13,9 +13,15 @@ import {
   ClosePopup,
   QInput,
   QDate,
-  QDialog
-} from 'quasar'
+  QDialog,
+} from "quasar";
 
+Vue.prototype.$trello = {
+  ...window.Trello,
+  getToken: function() {
+    return localStorage.getItem("trello_token");
+  },
+};
 Vue.use(Quasar, {
   components: {
     QCard,
@@ -25,12 +31,12 @@ Vue.use(Quasar, {
     QBtn,
     QInput,
     QDate,
-    QDialog
+    QDialog,
   },
   directives: {
-    ClosePopup
-  }
-})
+    ClosePopup,
+  },
+});
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  render: (h) => h(App),
+}).$mount("#app");
